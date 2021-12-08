@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Rezeptvorschlag</title>
+	<link rel="stylesheet" href="rezeptProjekt.css" language="css" />
+	<script src="rezepte.js"></script>
+</head>
+
+<body>
+	<nav>
+
+		<img alt="picture" src="koch-logo.jpg" width=80> &emsp; <a href="index.html">Home</a> &nbsp; &nbsp;<a
+			href="contact.html">Contact</a> <!-- &nbsp; &nbsp;> <a href="overview.html">Uebersicht</a> -->
+
+	</nav>
+	<h1 id="rezeptName"></h1>
+
+	<!-- Content goes here -->
+
+	<div class="grid-container-recipe">
+		<div id="rezeptBild">
+			<!--hier unser Bild <img src="recept33a.jpg">-->
+		</div>
+		<div>
+			<p>
+			<h3>
+				Zutaten für <input type="number" id="personen" min="1" max="99" value="4"> Personen
+				<input type="button" value="berechnen" onclick="summe()">
+			</h3>
+			</p>
+
+			<ul id="zutaten">
+			</ul>
+			<h3 id="zubereitungsZeit"></h3>
+			<ul>
+				<li id="zubereitung"></li>
+			</ul>
+			<h3>Naehrwerte: </h3>
+			<p id="naehrwerte"></p>
+		</div>
+
+		<footer>Impressum</footer>
+		<!-- JAVASCRIPT -->
+		<script>
+			// rezeptProjektmanual Version 1.0 Datum 30.07.2021 Übergabe ID (window.location.href)
+			// Vers 1.1 Datum 30.07.2021 showRezept Funktion
+			// Vers 1.2 Datum 03.08.2021 naehrwerte und Zutatenberechnung hinzugefügt
+
+
+			function summe() {
+				const personen = parseFloat(document.getElementById("personen").value);
+
+				for (let index in rezepte[rezeptID].zutaten) {
+
+					const rezeptZutatenElement = document.getElementById("zutaten");
+					rezeptZutatenElement.innerHTML = "";
+
+					rezepte[rezeptID].zutaten.forEach(element => {
+						rezeptZutatenElement.innerHTML += `<li>${(element.wert) / 4 * personen} ${element.masseinheit} ${element.zutat}</li>`;
+					});
+				}
+			}
+
+			function showRezept(unsRezeptID) {
+
+				console.log("Es hat klick gemacht und du musst das jetzt essen #" + unsRezeptID + "#");
+				const rezeptBild = "<img src=" + rezepte[unsRezeptID].bild + " width=\"300\" alt=\"sollte ein schönes Bild sein\"" + ">";
+
+				const rezeptNameElement = document.getElementById("rezeptName");
+				const rezeptBildElement = document.getElementById("rezeptBild");
+				const naehrwerteElement = document.getElementById("naehrwerte");
+				naehrwerteElement.innerHTML = "Werte pro 100 g: " + rezepte[unsRezeptID].naehrwerte.kcal + " kcal; ";
+				naehrwerteElement.innerHTML = naehrwerteElement.innerHTML + rezepte[unsRezeptID].naehrwerte.eiweiss + " Eiweiss; ";
+				naehrwerteElement.innerHTML = naehrwerteElement.innerHTML + rezepte[unsRezeptID].naehrwerte.fett + " Fett; ";
+				naehrwerteElement.innerHTML = naehrwerteElement.innerHTML + rezepte[unsRezeptID].naehrwerte.kohlenhydr + " Kohlenhydrate";
+
+				const zubereitungsZeitElement = document.getElementById("zubereitungsZeit");
+				const zubereitungsElement = document.getElementById("zubereitung");
+				zubereitungsZeitElement.innerHTML = "Zubereitungszeit: " + rezepte[unsRezeptID].zubereitungszeit + " Minuten";
+				zubereitungsElement.innerHTML = rezepte[unsRezeptID].zubereitung;
+
+				//console.log(rezeptNameElement);
+				rezeptNameElement.innerHTML = rezepte[unsRezeptID].name;
+				rezeptBildElement.innerHTML = rezeptBild;
+
+				console.log(rezepte[unsRezeptID].name);
+
+				//for(let i; i < rezepte[unsRezeptID].zutaten.lenth; i++)
+				for (let index in rezepte[unsRezeptID].zutaten) {
+
+					console.log(`${index}`);
+					summe();
+				}
+
+
+			}
+
+			const urlRezept = new URL(window.location.href);
+			console.log(urlRezept);
+			let rezeptID = urlRezept.searchParams.get("id");
+			rezeptID--;
+			console.log(rezeptID);
+			showRezept(rezeptID);
+
+		</script>
+
+</body>
+
+</html>

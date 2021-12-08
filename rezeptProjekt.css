@@ -1,0 +1,62 @@
+	body
+{
+background-color: yellow
+}
+h1 {text-align: center;}
+h1 {text-decoration: underline;}
+	
+footer{
+	position: fixed;
+	width: 100%
+	color: blue;
+	bottom: 13px;	
+}
+
+.grid-container  {
+display: grid;
+align-items: center;
+justify-items: center;
+grid-template-columns: auto auto auto;
+}
+
+.grid-container a {
+	color: black;
+	 text-decoration:none;
+}
+	
+	
+.grid-item {
+	border: black;
+	border-style: double;
+	border-width: 3px;
+	padding: 10px;
+	text-align: center;
+	margin: 5px;
+}
+
+.grid-item2 {
+	
+	
+	border-width: 3px;
+	padding: 10px;
+	margin: 5px;
+}
+
+.grid-container-recipe {
+	display: grid;
+	grid-template-columns: auto auto;
+  gap: 10px;
+}
+	.grid-container-2col {
+	display: grid;
+	border: black;
+	border-style: double;
+	grid-template-columns: auto auto;
+  gap: 10px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+table { background-color: BlueViolet; }
+th { background-color: silver; }
+td { background-color: beige;text-align: center }
