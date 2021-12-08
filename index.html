@@ -2,42 +2,43 @@
 <html>
 
 <head>
-    <!-- Stand vor 08.12.2021 <meta charset="utf-8">>
-    <meta charset="UTF-8"> <!-- ASCII, UTF-8, Windows-nnnn? -->
-     <!-- Stand vor 08.12.2021 <meta name="viewport" content="width=device-width">>
-    <title>HTML Gehversuche SEA7 index.html</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Rezeptetab</title>
+    <link rel="stylesheet" href="rezeptProjekt.css" lang="css">
+    <script src="rezepte.js"></script>
 </head>
 
 <body>
-    <h1> Ein simpler Rechner</h1>
-    <h2 id="ausgabText">Hier soll später die Ausgabe erfolgen</h2>
-    Lesen Sie, wo ich die ersten Erfahrungen mit HTML gemacht habe: <a href="https://selfhtml.org/">kopiert von selfhtml.org</a>
+    <!-- HTML -->
 
-    <h1>Ampel macht es endlich wahr Diesel wird super-teuer</h1> <!-- h1 - header -->
-    <h2>2021-12-08, TL, Interpertation JoWe</h2>
-    <h3>Politik</h3>
+    <nav>
 
-    <p>Vor Weihnachten platzt die Bombe, Silvester wird es nur selbst gebastelte Feuerwerke geben</p>
+        <img alt="picture" src="koch-logo.jpg" width=80> &emsp; <a href="index.html">Home</a> &nbsp; &nbsp;<a
+            href="contact.html">Contact</a> <!-- &nbsp; &nbsp;> <a href="overview.html">Uebersicht</a> -->
 
-    <p>Diesel muss teurer werden, wenn wir FF von den Barrikaden holen wollen
+    </nav>
 
-    <a href="ordner/index.html">kopiert von Heise/Propagandaticker</p>
+    <h1>Mein Rezepte</h1>
+    <table id="meineRezepte">
+        <tr>
+            <th>Nur *** Rezepte</th>
+            <th>Name</th>
+            <th>Zubereitungszeit</th>
+            <th>Zutaten</th>
+            <!-- V1.0 <th>Naehrwerte</th>-->
+        </tr>
+    </table>
+    <datalist id="alleZutaten"></datalist>
+    
+    <!-- JAVASCRIPT -->
+    <script src="rezeptProjekt.js">
+// Unser Programm Version 1.0 Datum 29.07.2021
 
-   <div>
-   Ein div ist einfach eine "Klammer" um andere Dinge
-   </div> 
-   <div>
-Abgrenzung ist das Stichwort!!!
-   </div>
+    </script>
+
 
 
 </body>
-
-
-<!-- JAVASCRIPT -->
-<script>
-
-</script>
 
 </html>
