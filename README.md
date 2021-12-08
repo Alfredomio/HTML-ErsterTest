@@ -8,4 +8,4 @@ Stand 08.12.2021
 HMTL erweitert
 RezeptProjekt eingebaut
 
-coypwright Joachim Wehner
+copyright Joachim Wehner
